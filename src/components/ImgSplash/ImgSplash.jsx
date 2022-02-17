@@ -15,7 +15,7 @@ const SplashContainer = styled.div`
   img {
     text-align: center;
     width: 126vw;
-    height: 65vh;
+    height: 100vh;
     object-fit: contain;
   }
 `;
