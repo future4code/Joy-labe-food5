@@ -9,6 +9,11 @@ import ErrorPage from "../pages/error/ErrorPage";
 import Cadastrar from "../pages/cadastrar/Cadastrar";
 import SplashPage from "../pages/SplashPage/SplashPage";
 
+import Endereco from "../pages/SplashPage/SplashPage";
+import ActiveOrder from "../pages/SplashPage/SplashPage";
+import HistoryOrder from "../pages/SplashPage/SplashPage";
+
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -17,13 +22,16 @@ const Router = () => {
  
       <Route exact path={"/"} component={SplashPage} />
       <Route exact path={"/home"} component={Home} />
+      <Route exact path={"/login"} component={Login} />
+        <Route exact path={"/signup"} component={Cadastrar} />
+        <Route exact path={"/endereco"} component={Endereco} /> 
+        <Route exact path={"/restaurante/:id"}component={DetalheRest}/>       
+        <Route exact path={"/active-order"} component={ActiveOrder} />
+        <Route exact path={"/profile"} component={Usuario} />
+        <Route exact path={"/historico"} component={HistoryOrder} />
+        <Route exact path={"/restaurante/:id/pedido"} component={Carrinho} />
+        <Route component={ErrorPage} />
 
-        <Route path="/login" element={<Login />}/>
-        <Route path="/signup" element={<Cadastrar />}/>
-        <Route path="/restaurants/:restaurantId" element={<DetalheRest />}/>          
-        <Route path="/active-order" element={<Carrinho />}/>
-        <Route path="/profile" element={<Usuario />}/>
-        <Route path ="*" element={<ErrorPage />}/>
         </Switch>
    
     </BrowserRouter>
