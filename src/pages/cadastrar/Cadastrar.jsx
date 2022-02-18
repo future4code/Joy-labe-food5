@@ -15,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Base_URL } from "./../../constants/Base_URL";
-import { goToSignUp } from "../../router/coodinator";
+import { goToEndereco } from "../../router/coordinator";
 
 export default function Login() {
   const history = useHistory();
@@ -37,6 +37,7 @@ export default function Login() {
           theme: "colored",
           className: "toastifySize",
         })
+        goToEndereco(history)
         history.push("/endereco")
       })
       .catch((e) => {
@@ -46,7 +47,7 @@ export default function Login() {
           className: "toastifySize",
         });
       });
-    // limpaCampos();
+    limpaCampos();
   };
   return (
     <Container>

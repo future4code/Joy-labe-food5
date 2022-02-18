@@ -16,7 +16,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Base_URL } from "./../../constants/Base_URL";
-import { goToHome, goToSignUp } from "../../router/coodinator";
+import { goToHome, goToSignUp } from "../../router/coordinator";
+import { goToEndereco } from './../../router/coordinator';
 
 export default function Login() {
   const history = useHistory();
@@ -45,7 +46,7 @@ export default function Login() {
         autoClose: 3000,
         theme: "colored",
       })
-      history.push("/endereco");
+      goToEndereco(history);
     }
 
     axios

@@ -6,10 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Base_URL } from "../../constants/Base_URL";
+import { goToHome } from "../../router/coordinator";
 
 export default function Login() {
   const history = useHistory();
-  const token = localStorage.getItem("token");
+  let token = localStorage.getItem("token");
   const { form, onChange, limpaCampos } = useForm({
     street: "",
     number: "",
@@ -39,13 +40,12 @@ export default function Login() {
         }
       )
       .then(({ data }) => {
-        console.log(data);
+        token = localStorage.setItem("token", data.token)
         toast.success("Endereço adicionado com sucesso", {
           theme: "colored",
           className: "toastifySize",
         });
-        data.user.hasAddress = !data.use.hasAddress;
-        history.push("/restaurants");
+        goToHome(history);
       })
       .catch((e) => {
         console.log(e);
