@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
-import DetalheRest from "../pages/detalhe/DetalheRest";
 import Carrinho from "../pages/carrinho/Carrinho";
 import Home from "../pages/home/Home";
 import Usuario from "../pages/usuario/Usuario";
@@ -22,7 +21,6 @@ const Router = () => {
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/signup"} component={Cadastrar} />
         <Route exact path={"/endereco"} component={Endereco} />
-        <Route exact path={"/restaurante/:id"} component={DetalheRest} />
         <Route exact path={"/active-order"} component={ActiveOrder} />
         <Route exact path={"/profile"} component={Usuario} />
         <Route exact path={"/historico"} component={HistoryOrder} />

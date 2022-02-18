@@ -41,8 +41,7 @@ export default function Login() {
         history.push("/endereco")
       })
       .catch((e) => {
-        console.log(e);
-        toast.error("Ops, verifique os dados dos campos", {
+        toast.error(`${e.response.data.message}`, {
           theme: "colored",
           className: "toastifySize",
         });

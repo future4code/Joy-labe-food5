@@ -55,14 +55,12 @@ export default function Login() {
         password: form.password,
       })
       .then(({ data }) => {
-        console.log(data);
         localStorage.setItem("token", data.token);
         data?.user.hasAddress ? sucesso() : aviso()
       })
       .catch((e) => {
-        console.log(e);
         toast.update(id, {
-          render: "Ops, email ou senha incorreto",
+          render: `${e.response.data.message}`,
           type: "error",
           isLoading: false,
           autoClose: 3000,

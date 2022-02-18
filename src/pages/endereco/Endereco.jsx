@@ -48,7 +48,6 @@ export default function Login() {
         goToHome(history);
       })
       .catch((e) => {
-        console.log(e);
         toast.error("Ops, verifique os dados dos campos", {
           theme: "colored",
           className: "toastifySize",
