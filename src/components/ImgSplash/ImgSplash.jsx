@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
- import IfutureSplash from "../../img/splash.png";
-//import IfutureSplash from "../../img/splash.svg";
+import IfutureSplash from "../../img/splash.png";
 
 const SplashContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ff2200;
   min-height: 100vh;
   width: 100%;
