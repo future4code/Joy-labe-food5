@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const ContainerMenuButtons = styled.div`
   display: flex;
   height: 12vh;
-  
-  max-width:80%;
-  min-width: 50%;
+  margin:0px 20vw 0px 20vw;
+  max-width:100%;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   position: sticky;
   bottom: 0.1vh;
   background-color: #fff;

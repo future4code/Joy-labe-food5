@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../../constants/BASE_URL";
 import { useParams } from "react-router";
 import FooterContainer from "../../components/Footer/Footer";
-import GlobalContextFood from "../../context/GlobalContextFood";
+import ContextGlobal from "../../context/ContextGlobal";
 
 import {
   RestaurantDetalhes,
@@ -24,7 +24,7 @@ const DetalheRest = () => {
   const [data, setData] = useState();
   const [dataFoods, setDataFoods] = useState();
   const { carrinho, addCarrinho, removeCarrinho } = useContext(
-    GlobalContextFood
+    ContextGlobal
   );
   const params = useParams();
 
