@@ -15,7 +15,7 @@ export const goToSignUp = (history) =>{
     history.push("/signup")
 }
 
-export const Endereco = (history) =>{
+export const goToEndereco = (history) =>{
     history.push(`/endereco`)
 }
 
@@ -38,7 +38,6 @@ export const HistoryOrder = (history) =>{
 export const goToCart = (history) =>{
     history.push("/restaurante/:id/pedido")
 }
-
 
 
 

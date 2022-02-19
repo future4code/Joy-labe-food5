@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  
   @media (min-width: 375px) and (max-width: 768px) {
     padding: 2%;
   }
@@ -31,7 +30,7 @@ export const Fildset = styled.fieldset`
 `;
 
 export const Legend = styled.legend`
-  padding: 0 10px;
+  padding: 0 5px;
   color: #b8b8b8;
 `;
 
@@ -61,11 +60,4 @@ export const BTNEntrar = styled.button`
   border-radius: 2px;
   background-color: #e8222e;
   cursor: pointer;
-`;
-
-export const Span = styled.span`
-  cursor: pointer;
-  :hover{
-    color: #e8222e;
-  }
 `;
