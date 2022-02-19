@@ -4,7 +4,6 @@ import { BASE_URL } from "../../constants/BASE_URL";
 import { useParams } from "react-router";
 import FooterContainer from "../../components/Footer/Footer";
 import ContextGlobal from "../../context/ContextGlobal";
-
 import {
   RestaurantDetalhes,
   ImageLoja,
@@ -16,7 +15,6 @@ import {
   InfoFood,
   FoodImage
 } from "./styled";
-
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
