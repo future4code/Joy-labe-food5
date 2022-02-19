@@ -16,8 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Base_URL } from "./../../constants/Base_URL";
-import { goToHome, goToSignUp } from "../../router/coordinator";
-import { goToEndereco } from './../../router/coordinator';
+import { goToHome, goToSignUp, goToEndereco } from "../../router/coordinator";
 
 export default function Login() {
   const history = useHistory();

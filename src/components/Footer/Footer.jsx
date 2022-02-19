@@ -6,7 +6,7 @@ import {
   ActiveOrder,
   goToProfile,
   goToHome
-} from "./../../router/coodinator";
+} from "./../../router/coordinator";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@mui/icons-material/Home";

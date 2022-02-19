@@ -6,7 +6,6 @@ export const goToHome = (history) =>{
     history.push("/home")
 }
 
-
 export const goToLogin = (history) =>{
     history.push("/login")
 }
@@ -38,6 +37,8 @@ export const HistoryOrder = (history) =>{
 export const goToCart = (history) =>{
     history.push("/restaurante/:id/pedido")
 }
+
+
 
 
 
