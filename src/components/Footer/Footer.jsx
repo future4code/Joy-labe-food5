@@ -1,24 +1,43 @@
 import React, { useState } from "react";
 import { ContainerMenuButtons } from "./styled";
 import { useHistory } from "react-router-dom";
-import { goToCart, ActiveOrder, goToProfile, goToHome, } from "./../../router/coodinator";
-import { Button } from "@material-ui/core";
-
- const FooterContainer = () => {
-    const history = useHistory();
-    const [url, setUrl] = useState("home");
-    return (
-        <>
-        <ContainerMenuButtons>
-            <Button onClick={() => goToHome(history)} variant="contained" />
-            {url !== window.location.href.substring(22, 100) ? (
-            <Button onClick={() => goToCart(history, window.location.href.substring(34, 100))} variant="contained" />
-            ) : (
-            <Button onClick={() => ActiveOrder(history)} variant="contained" />
-             )}
-            <Button onClick={() => goToProfile(history)} variant="contained"/>
-        </ContainerMenuButtons>
-        </>
-    );
+import {
+  goToCart,
+  ActiveOrder,
+  goToProfile,
+  goToHome
+} from "./../../router/coodinator";
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+const FooterContainer = () => {
+  const history = useHistory();
+  const [url, setUrl] = useState("home");
+  return (
+    <>
+      <ContainerMenuButtons>
+       
+        <IconButton onClick={() => goToHome(history)} variant="contained">
+        <HomeIcon fontSize="large" />
+        </IconButton>
+        
+        {url !== window.location.href.substring(22, 100) ? (
+          <IconButton onClick={() =>  goToCart(history, window.location.href.substring(34, 100))
+            }
+            variant="contained">
+          <ShoppingCartIcon fontSize="large" /> 
+          </IconButton>
+        ) : (
+          <IconButton onClick={() => ActiveOrder(history)} variant="contained" >
+  <ShoppingCartIcon fontSize="large" />
+</IconButton>
+        )}
+        <IconButton onClick={() => goToProfile(history)} variant="contained" >
+        <AccountCircleIcon fontSize="large" />
+          </IconButton>
+      </ContainerMenuButtons>
+    </>
+  );
 };
-export default FooterContainer
+export default FooterContainer;
