@@ -6,7 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Base_URL } from "../../constants/Base_URL";
-import { goToHome } from "../../router/coordinator";
+// import { goToHome } from "../../router/coordinator";
+import { goToLogin } from "../../router/coordinator";
 
 export default function Login() {
   const history = useHistory();
@@ -45,7 +46,7 @@ export default function Login() {
           theme: "colored",
           className: "toastifySize",
         });
-        goToHome(history);
+        goToLogin(history);
       })
       .catch((e) => {
         toast.error("Ops, verifique os dados dos campos", {

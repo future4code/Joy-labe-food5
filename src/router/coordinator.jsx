@@ -1,7 +1,3 @@
-export const SplashPage = (history) =>{
-    history.push(`/`)
-}
-
 export const goToHome = (history) =>{
     history.push("/home")
 }
@@ -18,7 +14,7 @@ export const goToEndereco = (history) =>{
     history.push(`/endereco`)
 }
 
-export const goToRestaurantId = (history, id) =>{
+export const goToRestaurant = (history, id) =>{
     history.push(`/restaurante/${id}`)
 }
 
@@ -34,8 +30,8 @@ export const HistoryOrder = (history) =>{
     history.push(`/historico`)
 }
 
-export const goToCart = (history) =>{
-    history.push("/restaurante/:id/pedido")
+export const goToCart = (history, id) =>{
+    history.push(`/restaurante/${id}/pedido`)
 }
 
 
