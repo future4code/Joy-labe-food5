@@ -101,7 +101,9 @@ export default function Login() {
             title="Insira uma senha de 6 dígitos(números)"
           />
         </Fildset>
+        <span className="botao">
         <BTNEntrar>Entrar</BTNEntrar>
+        </span>
       </form>
       <P style={{ marginTop: "1.75rem" }}>
         Não possui cadastro?{" "}

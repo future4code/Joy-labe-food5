@@ -59,13 +59,18 @@ export const BTNEntrar = styled.button`
   padding: 0.75rem 1rem;
   border: none;
   border-radius: 2px;
-  background-color: #e8222e;
+  background-color: #df2531;
   cursor: pointer;
+  color:white;
+  :hover{
+    background-color: #ff0011;
+  }
 `;
 
 export const Span = styled.span`
   cursor: pointer;
+  color: #e8222e;
   :hover{
-    color: #e8222e;
+    color: #b8b8b8;
   }
 `;
