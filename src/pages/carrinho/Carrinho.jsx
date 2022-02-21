@@ -14,7 +14,7 @@ import {
 } from './styled'
 import FooterContainer from "../../components/Footer/Footer";
 import ContextGlobal from "../../context/ContextGlobal"
-import { BASE_URL } from "../../constants/Base_URL";
+import { Base_URL } from "../../constants/Base_URL";
 
 
 
@@ -82,7 +82,7 @@ export default function Carrinho() {
 
   const finalizarPedido = () => {
     axios
-    .post(`${BASE_URL}/restaurants/${restaurants.id}/order`,
+    .post(`${Base_URL}/restaurants/${restaurants.id}/order`,
     {
       "products": [ pedido ],
       "paymentMethod": "creditcard"

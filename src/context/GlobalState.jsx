@@ -39,7 +39,7 @@ const GlobalState = (props) => {
     return (
         <>
             <ContextGlobal.Provider
-                value={(carrinho, addCarrinho, removeCarrinho, pedido)}>
+                value={{carrinho, addCarrinho, removeCarrinho, pedido}}>
                 {props.children}
             </ContextGlobal.Provider>
         </>

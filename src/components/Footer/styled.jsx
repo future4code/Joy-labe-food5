@@ -2,15 +2,18 @@ import styled from "styled-components";
 
 export const ContainerMenuButtons = styled.div`
   display: flex;
-  height: 12vh;
-  margin:0px 20vw 0px 20vw;
-  max-width:100%;
+  height: 13vh;
+  padding:0px 10vw 0px 10vw;
+  max-width:100vw;
   align-items: center;
   justify-content: space-around;
   position: sticky;
   bottom: 0.1vh;
   background-color: #fff;
   bottom: 0%;
+  @media (min-width: 375px) and (max-width: 768px) {
+    padding: 2%;
+  }
   
   button {
     display: flex;
