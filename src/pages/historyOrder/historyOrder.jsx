@@ -1,10 +1,10 @@
-import { Button } from '@mui/material'
 import React from 'react'
 
 export default function HistoryOrder() {
   return (
     <div>
-      <Button variant="outlined">HistoryOrder</Button>
+      <h1>Histoirico de Pedidos</h1>
+      
     </div>
   )
 }
