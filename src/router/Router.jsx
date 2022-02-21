@@ -9,8 +9,8 @@ import Cadastrar from "../pages/cadastrar/Cadastrar";
 import SplashPage from "../pages/SplashPage/SplashPage";
 import RestauranteDetalhes from "../pages/detalhe/DetalheRest";
 import Endereco from "../pages/endereco/Endereco";
-import ActiveOrder from "../pages/SplashPage/SplashPage";
-import HistoryOrder from "../pages/SplashPage/SplashPage";
+import ActiveOrder from "../pages/activeOrder/ActiveOrder";
+import HistoryOrder from "../pages/historyOrder/historyOrder";
 
 const Router = () => {
   return (
@@ -21,7 +21,7 @@ const Router = () => {
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/signup"} component={Cadastrar} />
         <Route exact path={"/endereco"} component={Endereco} />
-        <Route exact path={"/active-order"} component={ActiveOrder} />
+        <Route exact path={"/pedidos-ativos"} component={ActiveOrder} />
         <Route exact path={"/profile"} component={Usuario} />
         <Route exact path={"/historico"} component={HistoryOrder} />
         <Route exact path={"/restaurante/:id"} component={RestauranteDetalhes}/>

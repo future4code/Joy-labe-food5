@@ -19,7 +19,7 @@ export const goToRestaurant = (history, id) =>{
 }
 
 export const ActiveOrder = (history) =>{
-    history.push(`/active-order`)
+    history.push(`/pedidos-ativos`)
 }
 
 export const goToProfile = (history) =>{
