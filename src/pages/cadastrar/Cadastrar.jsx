@@ -14,7 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { Base_URL } from "./../../constants/Base_URL";
+import { BASE_URL } from "./../../constants/BASE_URL";
 import { goToEndereco } from "../../router/coordinator";
 
 export default function Login() {
@@ -25,7 +25,7 @@ export default function Login() {
   const criaUsuario = (e) => {
     e.preventDefault();
     axios
-      .post(`${Base_URL}/signup`, {
+      .post(`${BASE_URL}/signup`, {
         name: form.name,
         email: form.email,
         cpf: form.cpf,

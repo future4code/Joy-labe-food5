@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { Base_URL } from "../../constants/Base_URL";
+import { BASE_URL } from "../../constants/BASE_URL";
 import { goToHome } from "../../router/coordinator";
 
 export default function Login() {
@@ -24,7 +24,7 @@ export default function Login() {
     e.preventDefault();
     axios
       .put(
-        `${Base_URL}/address`,
+        `${BASE_URL}/address`,
         {
           street: form.street,
           number: form.number,

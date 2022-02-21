@@ -19,7 +19,7 @@ import { useHistory } from "react-router-dom";
     setTimeout(() => {
       history.push("/home");
       history.go();
-    }, 2999);
+    }, 2599);
   };
   changePage();
   return <>   </>;
