@@ -15,15 +15,14 @@ import {
   InfoFood,
   FoodImage
 } from "./styled";
+
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
-const DetalheRest = () => {
+const RestauranteDetalhes = () => {
   const [data, setData] = useState();
   const [dataFoods, setDataFoods] = useState();
-  const { carrinho, addCarrinho, removeCarrinho } = useContext(
-    ContextGlobal
-  );
+  const { carrinho, addCarrinho, removeCarrinho } = useContext(ContextGlobal);
   const params = useParams();
 
   useEffect(() => {
@@ -51,20 +50,20 @@ const DetalheRest = () => {
     <>
       <RestaurantDetalhes>
         <RestaurantCard>
-          <h3>Restaurante</h3>
+          <h1>Restaurante</h1>
         </RestaurantCard>
+
         <MenuRestaurant>
           <ImageLoja src={data && data.logoUrl} alt="logo loja" />
-          <span className="name">{data && data.name}</span>
-          <span className="category">{data && data.category}</span>
-          <div>
-            <span>{data && data.deliveryTime}-Min</span>
-            <span>
-              Valor Entrega R${" "}
-              {data && data.shipping.toFixed(2).replace(".", ",")}
+          <span className="fatasia">{data && data.name}</span>
+          <span className="categoria">{data && data.category}</span>
+          <div className="ajuste-tempo-valor">
+            <span className="tempo">{data && data.deliveryTime}-Min</span>
+            <span className="valor">
+              Valor Entrega R$:{data && data.shipping.toFixed(2).replace(".", ",")}
             </span>
           </div>
-          <span className="address">{data && data.address}</span>
+          <span className="endereço">{data && data.address}</span>
         </MenuRestaurant>
         {dataFoods &&
           dataFoods.map((i) => {
@@ -73,27 +72,21 @@ const DetalheRest = () => {
                 <FoodContainer>
                   <FoodImage src={i.photoUrl} alt="imagem produto" />
                   <InfoFood>
-                    <span className="food_name">{i.name}</span>
-                    <span className="product_description">{i.description}</span>
-                    <div className="detalhe">
-                      <span className="product_price">
-                        R$ {i.price.toFixed(2).replace(".", ",")}
+                    <span className="food_nome">{i.name}</span>
+                    <span className="food_descricao">{i.description}</span>
+                    <div className="food_detalhe">
+                      <span className="food_preco">
+                        R$: {i.price.toFixed(2).replace(".", ",")}
                       </span>
                       <MenuButtons>
                         <span>
                           <RemoveCircleIcon
-                            onClick={() => removeCarrinho(i)}
-                            color="#E8222E"
-                            size="21px"
-                          />
-                        </span>
+                            onClick={() => removeCarrinho(i)}/>
+                              </span>
                         <p>{Quatidade(i.id)}</p>
                         <span>
                           <AddCircleIcon
-                            onClick={() => addCarrinho(i)}
-                            color="#E8222E"
-                            size="21px"
-                          />
+                            onClick={() => addCarrinho(i)} />
                         </span>
                       </MenuButtons>
                     </div>
@@ -107,4 +100,5 @@ const DetalheRest = () => {
     </>
   );
 };
-export default DetalheRest;
+
+export default RestauranteDetalhes;

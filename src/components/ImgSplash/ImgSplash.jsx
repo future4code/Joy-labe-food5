@@ -6,13 +6,15 @@ const SplashContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ff2200;
+  background-color: #E8222E;
   min-height: 100vh;
   width: 100%;
 
   justify-content: center;
   align-items: center;
-
+  @media (min-width: 375px) and (max-width: 768px) {
+    padding: 2%;
+  }
   img {
     text-align: center;
     width: 126vw;
