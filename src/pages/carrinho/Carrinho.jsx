@@ -37,9 +37,9 @@ const produto = [
 
 
 export default function Carrinho() {
-  const { carrinho, pedido, removeCarrinho } = useContext(ContextGlobal)
+  const { carrinho, pedido, removeCarrinho, data, valorTotal } = useContext(ContextGlobal)
   const [detalhe, setDetalhe] = useState([])
-  const [restaurants, setRestaurants] = useState([])
+  // const [restaurants, setRestaurants] = useState([])
   const [endereco, setEndereco] = useState([])
   const [dinheiro, setDinheiro] = useState([])
   const [credito, setCredito] = useState([])
@@ -49,12 +49,12 @@ export default function Carrinho() {
 
     pegarEndereco();
 
-    axios.get("https://us-central1-missao-newton.cloudfunctions.net/fourFoodB/restaurants/1",
-      autorizacao
-    ) 
-    .then(res =>{ 
-        setRestaurants(res.data.restaurant)
-    }).catch((err) =>{console.log(err)})
+    // axios.get("https://us-central1-missao-newton.cloudfunctions.net/fourFoodB/restaurants/1",
+    //   autorizacao
+    // ) 
+    // .then(res =>{ 
+    //     setRestaurants(res.data.restaurant)
+    // }).catch((err) =>{console.log(err)})
   
   },[]);
 
@@ -72,17 +72,17 @@ export default function Carrinho() {
   
   // console.log(endereco)
 
-  const addCarrinho = (idProduto) => {
+  // const addCarrinho = (idProduto) => {
 
-    const filtrarProduto = restaurants.products.find((item)=> item.id === idProduto )
-    const novaLista = [...detalhe, filtrarProduto]
+  //   const filtrarProduto = restaurants.products.find((item)=> item.id === idProduto )
+  //   const novaLista = [...detalhe, filtrarProduto]
     
-    setDetalhe(novaLista)
-  }
+  //   setDetalhe(novaLista)
+  // }
 
   const finalizarPedido = () => {
     axios
-    .post(`${BASE_URL}/restaurants/${restaurants.id}/order`,
+    .post(`${BASE_URL}/restaurants/${data.id}/order`,
     {
       "products": [ pedido ],
       "paymentMethod": "creditcard"
@@ -90,7 +90,7 @@ export default function Carrinho() {
     ).then(res => {}).catch(err => alert(err))
   }
 
-  const listarCarrinho = produto.map((item)=>{
+  const listarCarrinho = carrinho.map((item)=>{
     return(
       <CardProduto key={item.id}>
         <img src={item.photoUrl}/>
@@ -98,10 +98,10 @@ export default function Carrinho() {
           <h3>{item.name}</h3>
           <p>{item.description}</p>
           <nav>
-            <p>R$ {item.price},00</p>
+            <p>R$ {item.price}</p>
             <>
-              <button>1</button>
-              <button onClick={() => removeCarrinho()}>Remover</button>
+              <p>{item.quantidade}</p>
+              <button onClick={() => removeCarrinho(item)}>Remover</button>
             </>
           </nav>
         </div>
@@ -117,11 +117,11 @@ export default function Carrinho() {
 		setCredito(event.target.value)
 	}
 
-  console.log(dinheiro)
-  console.log(credito)
+  console.log(carrinho)
+  // console.log(credito)
 
 
-  const tempoMinimo = restaurants.deliveryTime - 15
+  const tempoMinimo = data.deliveryTime - 15;
 
   return (
     <ContainerGlobal>
@@ -136,11 +136,11 @@ export default function Carrinho() {
             <p><strong>{endereco.street},{endereco.number}</strong></p>
           </Endereco>
 
-          {produto.length > 0 ? (
+          {carrinho.length > 0 ? (
             <ContainerProduto>
-              <h3>{restaurants.name}</h3>
-              <p>{restaurants.address}</p>
-              <p>{tempoMinimo} - {restaurants.deliveryTime} min</p>
+              <h3>{data.name}</h3>
+              <p>{data.address}</p>
+              <p>{tempoMinimo} - {data.deliveryTime} min</p>
 
               {listarCarrinho}
             </ContainerProduto>) : ( 
@@ -149,10 +149,10 @@ export default function Carrinho() {
            </Cabecalho>
           )}
           <ContainerValor>
-            <p>Frete R${restaurants.shipping},00</p>
+            <p>Frete R${data.shipping},00</p>
             <div>
               <p>SUBTOTAL</p>
-              <h3>R$ ,00</h3>
+              <h3>R$ {valorTotal},00</h3>
             </div>
           </ContainerValor>
 

@@ -20,16 +20,16 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 const RestauranteDetalhes = () => {
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
   const [dataFoods, setDataFoods] = useState();
-  const { carrinho, addCarrinho, removeCarrinho } = useContext(ContextGlobal);
+  const { carrinho, addCarrinho, removeCarrinho, data, setData } = useContext(ContextGlobal);
   const params = useParams();
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/restaurants/${params.id}`, {
+      .get(`${BASE_URL}/restaurants/1`, {
         headers: {
-          auth: localStorage.getItem("token")
+          auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlAwRmVTTFBqZXU3UTNteDl6Unp6IiwibmFtZSI6InZpY3RvciIsImVtYWlsIjoidmljdG9yQGZ1dHVyZTQuY29tIiwiY3BmIjoiMzMzLjExMS4xMTEtMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXosIDE3NywgNzEgLSBWaWxhIE4uIENvbmNlacOnw6NvIiwiaWF0IjoxNjQ1MTQzMzUzfQ.PloQ9sQWhnOda7iDodCP1hTLaG7JxOMw69lu2q-VsaE"
         }
       })
       .then((res) => {
