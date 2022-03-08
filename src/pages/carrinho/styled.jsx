@@ -110,3 +110,64 @@ export const Pagamento = styled.div`
     
   }
 `
+
+export const FoodContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 20vh;
+  border: 1px solid;
+  border-radius: 8px;
+`;
+
+export const FoodImage = styled.img`
+  width: 35vw;
+  height: 19vh;
+  border-radius: 8px ;
+`;
+export const FoodList = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 96%;
+  padding: 4px;
+  margin-top: 8px;
+`;
+
+export const InfoFood = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+
+  .food_descricao {
+    color: #B8B8B8;
+  }
+  .food_nome {
+    color: #E8222E;
+  }
+  .food_preco{
+    font-size: large;
+  
+  }
+
+  .food_detalhe {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    margin-top: 14px;
+  }
+`
+
+export const MenuButtons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 50%;
+  color: #E8222E;
+  padding-left:50px;
+  
+  p {
+    margin: 0 6px;
+    font-size: 18px;
+  }
+`

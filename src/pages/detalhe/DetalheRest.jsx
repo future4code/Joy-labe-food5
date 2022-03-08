@@ -27,9 +27,9 @@ const RestauranteDetalhes = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/restaurants/1`, {
+      .get(`${BASE_URL}/restaurants/${params.id}`, {
         headers: {
-          auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlAwRmVTTFBqZXU3UTNteDl6Unp6IiwibmFtZSI6InZpY3RvciIsImVtYWlsIjoidmljdG9yQGZ1dHVyZTQuY29tIiwiY3BmIjoiMzMzLjExMS4xMTEtMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXosIDE3NywgNzEgLSBWaWxhIE4uIENvbmNlacOnw6NvIiwiaWF0IjoxNjQ1MTQzMzUzfQ.PloQ9sQWhnOda7iDodCP1hTLaG7JxOMw69lu2q-VsaE"
+          auth: localStorage.getItem("token")
         }
       })
       .then((res) => {

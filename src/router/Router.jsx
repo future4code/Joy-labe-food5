@@ -17,11 +17,11 @@ const Router = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path={"/"} component={SplashPage} />
-        <Route exact path={"/home"} component={Home} />
+        <Route exact path={"/pedidos-ativos"} component={Home} />
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/signup"} component={Cadastrar} />
         <Route exact path={"/endereco"} component={Endereco} />
-        <Route exact path={"/pedidos-ativos"} component={ActiveOrder} />
+        <Route exact path={"/home"} component={ActiveOrder} />
         <Route exact path={"/profile"} component={Usuario} />
         <Route exact path={"/historico"} component={HistoryOrder} />
         <Route exact path={"/restaurante/:id"} component={RestauranteDetalhes}/>
