@@ -20,9 +20,9 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 const RestauranteDetalhes = () => {
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
   const [dataFoods, setDataFoods] = useState();
-  const { carrinho, addCarrinho, removeCarrinho } = useContext(ContextGlobal);
+  const { carrinho, addCarrinho, removeCarrinho, data, setData } = useContext(ContextGlobal);
   const params = useParams();
 
   useEffect(() => {
