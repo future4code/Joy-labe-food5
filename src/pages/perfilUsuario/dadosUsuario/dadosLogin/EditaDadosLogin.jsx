@@ -16,10 +16,12 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
-import { BASE_URL } from "../../../../constants/Base_URL";
+import { BASE_URL } from "../../../../constants/BASE_URL";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { useProtectPage } from './../../../../hooks/useProtectPage';
 
 export default function EditaDadosLogin() {
+  useProtectPage()
   let token = localStorage.getItem("token");
   const history = useHistory();
   const [user, setUser] = useState();
