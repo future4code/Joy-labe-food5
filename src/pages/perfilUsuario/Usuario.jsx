@@ -15,44 +15,34 @@ import {
   TotalPedido,
   ContainerPedido,
   DataPedido,
+  GoBack,
 } from "./styled";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
-import { BASE_URL } from "../../constants/Base_URL";
+import { BASE_URL } from "../../constants/BASE_URL";
 import EditIcon from "@mui/icons-material/Edit";
 import FooterUsuario from "../../components/footerUsuario/footerUsuario";
 import { goToEditAddressEdit, goToEditProfile } from "../../router/coordinator";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { useProtectPage } from './../../hooks/useProtectPage';
 
 export default function Usuario() {
+  useProtectPage()
   let token = localStorage.getItem("token");
   const history = useHistory();
   const [user, setUser] = useState({});
   const [pedidos, setPedidos] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // const pedidos = [
-  //   {
-  //     name: "Bullguer Vila Madalena",
-  //     date: "11/11/2011",
-  //     total: `67,00`,
-  //   },
-  //   {
-  //     name: "Vinil Burger Butantã",
-  //     date: "17/02/2011",
-  //     total: `20,00`,
-  //   },
-  //   {
-  //     name: "Bullguer Vila Madalena",
-  //     date: "04/07/2011",
-  //     total: `89,00`,
-  //   },
-  // ];
-
   useEffect(() => {
     pegaUser();
     puxaPedidos();
   }, []);
+
+  const goBack = () => {
+    history.goBack();
+  };
 
   const pegaUser = () => {
     axios
@@ -106,8 +96,11 @@ export default function Usuario() {
         </Spinner>
       ) : (
         <>
-          <Cabecalho>
-            <P>Meu Perfil</P>
+           <Cabecalho>
+            <GoBack>
+              <ArrowBackIosIcon fontSize="small" onClick={goBack} />
+            </GoBack>
+            <P>Editar Endereço</P>
           </Cabecalho>
           <HR />
           <DivPaiDados>

@@ -17,8 +17,10 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { BASE_URL } from "../../constants/BASE_URL";
 import { goToHome, goToSignUp, goToEndereco } from "../../router/coordinator";
+import { useUnProtectPage } from './../../hooks/useUnprotectPage';
 
 export default function Login() {
+  useUnProtectPage()
   const history = useHistory();
   const { form, onChange, limpaCampos } = useForm({ email: "", password: "" });
 

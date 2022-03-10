@@ -119,3 +119,9 @@ export const TotalPedido = styled.p`
   font-weight: bold;
   margin-bottom: 5px;
 `;
+
+export const GoBack = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;  
+`
