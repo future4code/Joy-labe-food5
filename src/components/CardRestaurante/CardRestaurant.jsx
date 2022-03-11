@@ -1,5 +1,5 @@
 import React from "react";
-import { goToRestaurant } from "../../router/coodinator";
+import { goToRestaurant } from "../../router/coordinator";
 import { useHistory } from "react-router-dom";
 import {ConteinerRestPrincipal} from "./styled";
 
@@ -8,16 +8,16 @@ const history = useHistory()
 
 
 return(
-<ConteinerRestPrincipal onClick={()=> goToRestaurant(history, props.restaurante.id)}>
+<ConteinerRestPrincipal onClick={()=> goToRestaurant(history, props.id)}>
 <div>
-    <img src={props.restaurante.logoUrl} alt="Foto do Restaurante" />
+    <img src={props.logoUrl} alt="Foto do Restaurante" style={{ height: "100%", width: "100%" }}/>
 </div>
 <div>
-   <span>{props.restaurante.name}</span>
-   <span>Valor Entrega R$:{props.restaurante.shipping.toFixed(2).replace(".", ",")}</span>
+   <span>{props.name}</span>
 </div>
+<br></br>
 <div>
-
+   <span>Valor Entrega R$:{props.shipping.toFixed(2).replace(".", ",")}</span>
 </div>
 </ConteinerRestPrincipal>
 
