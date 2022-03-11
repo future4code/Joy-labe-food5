@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { BASE_URL } from "../../constants/BASE_URL";
+import { BASE_URL } from "../../constants/Base_URL";
 import { useHistory } from "react-router-dom"
 import { goToHome } from "./../../router/coordinator";
 import { ContainerHistorico, ConteinerInformacao } from "./styled";

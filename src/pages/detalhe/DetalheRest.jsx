@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { BASE_URL } from "../../constants/BASE_URL";
+import { BASE_URL } from "../../constants/Base_URL";
 import { useParams } from "react-router";
 import FooterContainer from "../../components/Footer/Footer";
 import ContextGlobal from "../../context/ContextGlobal";
