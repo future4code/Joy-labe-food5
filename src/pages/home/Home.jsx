@@ -10,11 +10,13 @@ export default function Home() {
   const [busca, setBusca] = useState("")
   const [select, setSelect] = useState("")
 
-  const restauranteFiltrado = infoRestaurante
-    .filter((i) => i.name.toLowerCase().includes(busca.toLocaleLowerCase()))
-
-    console.log(infoRestaurante);
-
+  console.log(infoRestaurante);
+  const restauranteCategoria = infoRestaurante
+  .filter((i) => i.category.toLowerCase().includes(select.toLocaleLowerCase()))
+  
+  const restauranteFiltrado = restauranteCategoria
+  .filter((i) => i.name.toLowerCase().includes(busca.toLocaleLowerCase()))
+  
 
   return (
     <div>

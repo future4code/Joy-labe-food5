@@ -12,4 +12,6 @@ export const ConteinerRestPrincipal = styled.div`
   margin: 4px;
   cursor: pointer;
 `
-
+export const logo = styled.img`
+  max-width: 180px
+`
