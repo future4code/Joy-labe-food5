@@ -1,7 +1,7 @@
 import React from "react";
 import { goToRestaurant } from "../../router/coordinator";
 import { useHistory } from "react-router-dom";
-import {ConteinerRestPrincipal, logo} from "./styled";
+import {ConteinerRestPrincipal} from "./styled";
 
 const CardRestaurant =(props)=>{
 const history = useHistory()

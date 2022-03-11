@@ -2,7 +2,7 @@ import { Button, Card } from '@mui/material'
 import {React, useState} from 'react'
 import FooterContainer from "../../components/Footer/Footer";
 import { useGetRestaurant } from '../../hooks/useGetRestaurant';
-import { BASE_URL } from "../../constants/Base_URL";
+import { BASE_URL } from "../../constants/BASE_URL";
 import CardRestaurant from '../../components/CardRestaurante/CardRestaurant';
 
 export default function Home() {
