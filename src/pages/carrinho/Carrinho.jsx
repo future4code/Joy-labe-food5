@@ -48,8 +48,6 @@ export default function Carrinho() {
   const [detalhe, setDetalhe] = useState([])
   // const [restaurants, setRestaurants] = useState([])
   const [endereco, setEndereco] = useState([])
-  // const [dinheiro, setDinheiro] = useState([])
-  // const [credito, setCredito] = useState([])
   const [form, setForm] = useState("")
 
 
@@ -187,11 +185,11 @@ export default function Carrinho() {
           <p>Forma de pagamento</p>
           <Hr/>
           <Pagamento>
-            <form>
-              <input type="radio" name="OPCAO" onChange={onChange} value={dinheiro} checked/> Dinheiro 
+            <div>
+              <input type="radio" name="OPCAO" onChange={onChange} value={dinheiro} checked={form.OPCAO === dinheiro}/> Dinheiro 
               <br/>
-              <input type="radio" name="OPCAO" onChange={onChange} value={credito}/> Cartão de crédito
-            </form>
+              <input type="radio" name="OPCAO" onChange={onChange} value={credito} checked={form.OPCAO === credito}/> Cartão de crédito
+            </div>
                 
             <button onClick={() => finalizarPedido()}>Confirma</button>
           </Pagamento>

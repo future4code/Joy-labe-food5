@@ -35,3 +35,13 @@ export const ContainerGlobal = styled.div`
   flex-direction: column;
   
 `
+
+export const Vazio = styled.div`
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+
+ 
+`
