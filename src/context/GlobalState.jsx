@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ContextGlobal from "./ContextGlobal";
 
 const GlobalState = (props) => {
-    const [carrinho, setcarrinho] = useState([]);
-    const [pedido, setpedido] = useState([]);
+    const [carrinho, setCarrinho] = useState([]);
+    const [pedido, setPedido] = useState([]);
     const [restaurante, setRestaurante] = useState([]);
     const [data, setData] = useState();
     const [valorTotal, setValorTotal] = useState(0)
@@ -20,14 +20,14 @@ const GlobalState = (props) => {
         if (posicao === -1) {
             somar = somar + lanche.price
             newCarrinho.push({ ...lanche, quantidade: 1 });
-            newPedido.push({ id: lanche.id, quantidade: 1 });
+            newPedido.push({ id: lanche.id, quantity: 1 });
         } else {
             somar = somar + lanche.price
             newCarrinho[posicao].quantidade += 1;
-            newPedido[posicao].quantidade += 1;
+            newPedido[posicao].quantity += 1;
         }
-        setcarrinho(newCarrinho);
-        setpedido(newPedido);
+        setCarrinho(newCarrinho);
+        setPedido(newPedido);
         setValorTotal(somar)
     };
 
@@ -38,14 +38,18 @@ const GlobalState = (props) => {
         });
 
         const newCarrinho = [...carrinho];
+        const newPedido = [...pedido];
         if (newCarrinho[posicao].quantidade === 1) {
             subitrair = subitrair - lanche.price
             newCarrinho.splice(posicao, 1);
+            newPedido.splice(posicao, 1);
         } else {
             subitrair = subitrair - lanche.price
             newCarrinho[posicao].quantidade -= 1;
+            newPedido[posicao].quantity -= 1;
         }
-        setcarrinho(newCarrinho);
+        setCarrinho(newCarrinho);
+        setPedido(newPedido);
         setValorTotal(subitrair)
     };
 
@@ -54,9 +58,11 @@ const GlobalState = (props) => {
             <ContextGlobal.Provider
                 value={{
                         carrinho,
+                        setCarrinho,
                         addCarrinho, 
                         removeCarrinho, 
-                        pedido, 
+                        pedido,
+                        setPedido, 
                         restaurante, 
                         setRestaurante, 
                         data, 

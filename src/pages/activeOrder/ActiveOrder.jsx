@@ -3,7 +3,8 @@ import React, {useEffect,useState} from 'react'
 import {
   Ordem,
   Cabecalho,
-  ContainerGlobal
+  ContainerGlobal,
+  Vazio
 } from "./styled"
 import axios from 'axios'
 import { BASE_URL } from "../../constants/BASE_URL";
@@ -20,16 +21,7 @@ export default function ActiveOrder() {
   const[pedidos, setPedidos] = useState([])
 
   useEffect(() => {
-    axios
-    .get(`${BASE_URL}/active-order`,{
-      headers: {
-        auth: localStorage.getItem("token")
-      }    
-    })
-    .then(res =>{ 
-      setPedidos(res.data.order)
-    })
-    .catch((err) =>{console.log(err)})
+    pegaPedidos() 
   },[])  
 
   console.log(pedidos)
@@ -43,16 +35,37 @@ export default function ActiveOrder() {
   //   )
   // })
 
+  const pegaPedidos = () => {
+    axios
+    .get(`${BASE_URL}/active-order`,{
+      headers: {
+        auth: localStorage.getItem("token")
+      }    
+    })
+    .then(res =>{ 
+      setPedidos(res.data.order)
+    })
+    .catch((err) =>{console.log(err)})
+  }
+  
+
   return (
     <ContainerGlobal>
       <Cabecalho>
         <p>Pedidos em adamentos</p>
       </Cabecalho>
 
-      <Ordem>
-        <p><strong>{pedidos.restaurantName}</strong></p>
-        <p>R${pedidos.totalPrice}</p>
-      </Ordem>
+      {pedidos ? (
+        <Ordem>
+          <p><strong>{pedidos.restaurantName}</strong></p>
+          <p>R${pedidos.totalPrice}</p>
+        </Ordem>
+        ):(
+          <Vazio>
+            <p>Vazio</p>
+          </Vazio>
+        )
+      }
         
       
     </ContainerGlobal>

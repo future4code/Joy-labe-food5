@@ -44,33 +44,31 @@ const produto = [
 
 
 export default function Carrinho() {
-  const { carrinho, pedido, removeCarrinho, data, valorTotal, addCarrinho } = useContext(ContextGlobal)
-  const [detalhe, setDetalhe] = useState([])
+  const { carrinho, setCarrinho, pedido, setPedido, removeCarrinho, data, valorTotal, addCarrinho } = useContext(ContextGlobal)
+  // const [detalhe, setDetalhe] = useState([])
   // const [restaurants, setRestaurants] = useState([])
   const [endereco, setEndereco] = useState([])
-  // const [dinheiro, setDinheiro] = useState([])
-  // const [credito, setCredito] = useState([])
   const [form, setForm] = useState("")
 
+  console.log(form)
+  console.log(pedido)
 
   useEffect(() => {
 
     pegarEndereco();
-
-    // axios.get("https://us-central1-missao-newton.cloudfunctions.net/fourFoodB/restaurants/1",
-    //   autorizacao
-    // ) 
-    // .then(res =>{ 
-    //     setRestaurants(res.data.restaurant)
-    // }).catch((err) =>{console.log(err)})
-    console.log(form)
-  
+    
   },[]);
 
   const onChange = (event) => {
     setForm({[event.target.name]: event.target.value})
   }
+  
+  const listarPedido = pedido.map ((i) =>{
+    return{"id": i.id, "quantity": i.quantidade}
+    
+  })
 
+  console.log("novo carrinho:", listarPedido)
 
   const pegarEndereco = () => {
     axios
@@ -94,12 +92,19 @@ export default function Carrinho() {
 
   const finalizarPedido = () => {
     axios
-    .post(`${BASE_URL}/restaurants/${data.id}/order`,
-    {
+    .post(`${BASE_URL}/restaurants/${data.id}/order`,{
       "products": [ pedido ],
-      "paymentMethod": "creditcard"
+      "paymentMethod": form
+    },{
+      headers: {
+        auth: localStorage.getItem("token")
+      }    
     }
-    ).then(res => {}).catch(err => alert(err))
+    ).then(res => {
+      console.log(res);
+      setCarrinho([]);
+      setPedido([])
+    }).catch(err => alert(err))
   }
 
   const listarCarrinho = carrinho.map((i)=>{
@@ -133,20 +138,8 @@ export default function Carrinho() {
     
   })
 
-  // const onChangeDinehiro = (event) => {
-	// 	setDinheiro(event.target.value)
-	// }
-  // const onChangeCredito = (event) => {
-	// 	setCredito(event.target.value)
-	// }
-
-  
-  // console.log(credito)
-
-
   const tempoMinimo = data.deliveryTime - 15;
-  const dinheiro = "money"
-  const credito = "creditcard"
+
 
   return (
     <ContainerGlobal>
@@ -174,7 +167,7 @@ export default function Carrinho() {
            </Cabecalho>
           )}
           <ContainerValor>
-            <p>Frete R${data.shipping},00</p>
+          {carrinho.length > 0 ? (<p>Frete R${data.shipping},00</p>) : (<p>Frete R$0,00</p>)}
             <div>
               <p>SUBTOTAL</p>
               {Number.isInteger(valorTotal) ? (
@@ -187,11 +180,11 @@ export default function Carrinho() {
           <p>Forma de pagamento</p>
           <Hr/>
           <Pagamento>
-            <form>
-              <input type="radio" name="OPCAO" onChange={onChange} value={dinheiro} checked/> Dinheiro 
+            <div>
+              <input type="radio" name="OPCAO" onChange={onChange} value="money" checked={form.OPCAO === "money"}/> Dinheiro 
               <br/>
-              <input type="radio" name="OPCAO" onChange={onChange} value={credito}/> Cartão de crédito
-            </form>
+              <input type="radio" name="OPCAO" onChange={onChange} value="creditcard" checked={form.OPCAO === "creditcard"}/> Cartão de crédito
+            </div>
                 
             <button onClick={() => finalizarPedido()}>Confirma</button>
           </Pagamento>
