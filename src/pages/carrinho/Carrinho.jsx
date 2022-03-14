@@ -1,9 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
+import { goToHome } from "../../router/coordinator";
+import { useHistory } from "react-router-dom";
 import { 
   ContainerFood,
   ContainerGlobal,
-  CardProduto,
   ContainerProduto,
   Endereco,
   ContainerValor,
@@ -44,14 +45,13 @@ const produto = [
 
 
 export default function Carrinho() {
-  const { carrinho, setCarrinho, pedido, setPedido, removeCarrinho, data, valorTotal, addCarrinho } = useContext(ContextGlobal)
-  // const [detalhe, setDetalhe] = useState([])
-  // const [restaurants, setRestaurants] = useState([])
+  const { carrinho, setCarrinho, pedido, setPedido, removeCarrinho, data, valorTotal, addCarrinho, setIdRestaurante, setValorTotal } = useContext(ContextGlobal)
   const [endereco, setEndereco] = useState([])
   const [form, setForm] = useState("")
+  const history = useHistory()
 
-  console.log(form)
-  console.log(pedido)
+  console.log(form.OPCAO)
+  console.log(data.id)
 
   useEffect(() => {
 
@@ -62,13 +62,6 @@ export default function Carrinho() {
   const onChange = (event) => {
     setForm({[event.target.name]: event.target.value})
   }
-  
-  const listarPedido = pedido.map ((i) =>{
-    return{"id": i.id, "quantity": i.quantidade}
-    
-  })
-
-  console.log("novo carrinho:", listarPedido)
 
   const pegarEndereco = () => {
     axios
@@ -91,20 +84,36 @@ export default function Carrinho() {
   };
 
   const finalizarPedido = () => {
-    axios
-    .post(`${BASE_URL}/restaurants/${data.id}/order`,{
-      "products": [ pedido ],
-      "paymentMethod": form
-    },{
-      headers: {
-        auth: localStorage.getItem("token")
+    const products = pedido.map((product) => {
+      return (
+          {
+              id: product.id,
+              quantity: product.quantity
+          }
+      )
+    })
+
+    const body = {
+      products: products ,
+      paymentMethod: form.OPCAO
+    }
+    const headers = {
+      headers:{
+        auth: localStorage.getItem("token"),
+        'Content-Type':'application/json'
       }    
     }
-    ).then(res => {
-      console.log(res);
+
+    axios.post(`${BASE_URL}/restaurants/${data.id}/order`, body, headers)
+    .then(res => {
+      console.log("Pedido realizado");
       setCarrinho([]);
       setPedido([])
-    }).catch(err => alert(err))
+      setIdRestaurante([])
+      setValorTotal(0)
+    }).catch(err => alert(err.response.data.message))
+
+    goToHome(history)
   }
 
   const listarCarrinho = carrinho.map((i)=>{
@@ -186,7 +195,7 @@ export default function Carrinho() {
               <input type="radio" name="OPCAO" onChange={onChange} value="creditcard" checked={form.OPCAO === "creditcard"}/> Cartão de crédito
             </div>
                 
-            <button onClick={() => finalizarPedido()}>Confirma</button>
+            <button onClick={() => finalizarPedido()}><strong> F i n a l i z a r </strong></button>
           </Pagamento>
           
           

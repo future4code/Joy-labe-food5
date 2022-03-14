@@ -8,6 +8,7 @@ import {
 } from "./styled"
 import axios from 'axios'
 import { BASE_URL } from "../../constants/BASE_URL";
+import FooterContainer from "../../components/Footer/Footer";
 
 
 const autorizacao = {
@@ -67,7 +68,7 @@ export default function ActiveOrder() {
         )
       }
         
-      
+      <FooterContainer/>
     </ContainerGlobal>
   )
 }

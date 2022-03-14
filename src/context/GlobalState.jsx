@@ -7,8 +7,9 @@ const GlobalState = (props) => {
     const [restaurante, setRestaurante] = useState([]);
     const [data, setData] = useState();
     const [valorTotal, setValorTotal] = useState(0)
+    const [idRestaurante, setIdRestaurante] = useState([])
 
-    console.log(valorTotal)
+    console.log(idRestaurante)
 
     const addCarrinho = (lanche) => {
         let somar = valorTotal
@@ -17,14 +18,34 @@ const GlobalState = (props) => {
         });
         const newCarrinho = [...carrinho];
         const newPedido = [...pedido];
-        if (posicao === -1) {
-            somar = somar + lanche.price
-            newCarrinho.push({ ...lanche, quantidade: 1 });
-            newPedido.push({ id: lanche.id, quantity: 1 });
+        if(newCarrinho.length > 0){
+            if(idRestaurante.id === data.id){
+                if (posicao === -1) {
+                    setIdRestaurante(data)
+                    somar = somar + lanche.price
+                    newCarrinho.push({ ...lanche, quantidade: 1 });
+                    newPedido.push({ id: lanche.id, quantity: 1 });
+                } else {
+                    setIdRestaurante(data)
+                    somar = somar + lanche.price
+                    newCarrinho[posicao].quantidade += 1;
+                    newPedido[posicao].quantity += 1;
+                } 
+            } else(
+                alert("Filazar o pedido antes de fazer outro em restaurante diferente.")
+            )
         } else {
-            somar = somar + lanche.price
-            newCarrinho[posicao].quantidade += 1;
-            newPedido[posicao].quantity += 1;
+            if (posicao === -1) {
+                setIdRestaurante(data)
+                somar = somar + lanche.price
+                newCarrinho.push({ ...lanche, quantidade: 1 });
+                newPedido.push({ id: lanche.id, quantity: 1 });
+            } else {
+                setIdRestaurante(data)
+                somar = somar + lanche.price
+                newCarrinho[posicao].quantidade += 1;
+                newPedido[posicao].quantity += 1;
+            } 
         }
         setCarrinho(newCarrinho);
         setPedido(newPedido);
@@ -39,14 +60,27 @@ const GlobalState = (props) => {
 
         const newCarrinho = [...carrinho];
         const newPedido = [...pedido];
-        if (newCarrinho[posicao].quantidade === 1) {
-            subitrair = subitrair - lanche.price
-            newCarrinho.splice(posicao, 1);
-            newPedido.splice(posicao, 1);
-        } else {
-            subitrair = subitrair - lanche.price
-            newCarrinho[posicao].quantidade -= 1;
-            newPedido[posicao].quantity -= 1;
+        if(newCarrinho.length === 1){
+            if (newCarrinho[posicao].quantidade === 1) {
+                setIdRestaurante([])
+                subitrair = subitrair - lanche.price
+                newCarrinho.splice(posicao, 1);
+                newPedido.splice(posicao, 1);
+            } else {
+                subitrair = subitrair - lanche.price
+                newCarrinho[posicao].quantidade -= 1;
+                newPedido[posicao].quantity -= 1;
+            }
+        } else{
+            if (newCarrinho[posicao].quantidade === 1) {
+                subitrair = subitrair - lanche.price
+                newCarrinho.splice(posicao, 1);
+                newPedido.splice(posicao, 1);
+            } else {
+                subitrair = subitrair - lanche.price
+                newCarrinho[posicao].quantidade -= 1;
+                newPedido[posicao].quantity -= 1;
+            }
         }
         setCarrinho(newCarrinho);
         setPedido(newPedido);
@@ -68,6 +102,8 @@ const GlobalState = (props) => {
                         data, 
                         setData,
                         valorTotal, 
+                        setValorTotal,
+                        setIdRestaurante,
                         setValorTotal
                         }}>
                 {props.children}

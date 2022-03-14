@@ -63,7 +63,7 @@ export const Endereco = styled.div`
 export const ContainerValor = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 28px;
+  margin: 16px 0 28px 0;
 
   p{
     align-self: end;
@@ -94,7 +94,7 @@ export const Cabecalho = styled.div`
 
 export const ContainerCarrinho = styled.div`
   padding: 6px;
-
+  margin-bottom: 16vh;
   nav{
     input{
       margin-bottom: 20px;
@@ -106,8 +106,16 @@ export const Pagamento = styled.div`
   display: grid;
   grid-template-rows: 10vh 4vh;
   
-  input{
-    
+  button{
+    background-color: #e8222e;
+    border: 1px solid #e8222e;
+    box-shadow: 2px 2px 2px #b8b8b8;
+
+    :hover{
+      background-color: #fff;
+      box-shadow: 4px 4px 4px #b8b8b8;
+      border: 1px solid #fff;
+    }
   }
 `
 
