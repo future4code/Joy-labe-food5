@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ContainerMenuButtons } from "./styled";
+import { ContainerMenuButtons, GlobalFooter } from "./styled";
 import { useHistory } from "react-router-dom";
 import {
   goToCart,
@@ -16,7 +16,7 @@ const FooterContainer = () => {
   const history = useHistory();
   const [url, setUrl] = useState("home");
   return (
-    <>
+    <GlobalFooter>
       <ContainerMenuButtons>
         <IconButton onClick={() => goToHome(history)} variant="contained">
           <HomeIcon fontSize="large" />
@@ -40,7 +40,7 @@ const FooterContainer = () => {
           <AccountCircleIcon fontSize="large" />
         </IconButton>
       </ContainerMenuButtons>
-    </>
+    </GlobalFooter>
   );
 };
 export default FooterContainer;

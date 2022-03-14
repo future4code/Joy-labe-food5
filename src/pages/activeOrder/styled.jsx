@@ -43,5 +43,4 @@ export const Vazio = styled.div`
   align-items: center;
   margin-bottom: 2vh;
 
- 
 `

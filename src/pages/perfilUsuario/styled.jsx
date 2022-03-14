@@ -6,9 +6,7 @@ export const Container = styled.div`
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 375px) and (max-width: 768px) {
-    padding: 2%;
-  }
+  padding: 2%;
 `;
 
 export const Spinner = styled.div`
@@ -21,7 +19,7 @@ export const Spinner = styled.div`
 
 export const Cabecalho = styled.div`
   display: flex;
-  width: 20.5rem;
+  width: 100%;
   align-items: center;
   position: relative;
   margin: 5% 0;
@@ -36,7 +34,7 @@ export const P = styled.p`
 `;
 
 export const HR = styled.hr`
-  width: 20.5rem;
+  width: 100%;
   border: 1px solid #d6d6d6;
   margin-bottom: 1rem;
 `;
@@ -44,15 +42,15 @@ export const HR = styled.hr`
 export const DivPaiDados = styled.div`
   display: flex;
   align-items: center;
-  width: 20.5rem;
+  width: 100%;
 `;
 
 export const DivFilhoDados = styled.div`
-  width: 20.5rem;
+  width: 100%;
 `;
 
 export const DivFilhoDadosEdita = styled.div`
-  width: 20%;
+  width: 100%;
   text-align: end;
 `;
 
@@ -88,7 +86,7 @@ export const PPPP = styled.p`
 
 export const ContainerPedido = styled.div`
   border: 1px solid #d6d6d6;
-  width: 20.5rem;
+  width: 100%;
   border-radius: 10px;
   display: flex;
   align-items: flex-start;

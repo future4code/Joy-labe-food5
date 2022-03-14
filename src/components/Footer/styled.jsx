@@ -5,9 +5,10 @@ export const ContainerMenuButtons = styled.div`
   height: 13vh;
   padding:0px 10vw 0px 10vw;
   max-width:100vw;
+  width: 100vw;
   align-items: center;
   justify-content: space-around;
-  position: sticky;
+  position: fixed;
   bottom: 0.1vh;
   background-color: #fff;
   bottom: 0%;
@@ -25,3 +26,8 @@ export const ContainerMenuButtons = styled.div`
     color: #e8222e;
   }
 `;
+
+export const GlobalFooter = styled.div`
+  display: grid;
+  
+`
