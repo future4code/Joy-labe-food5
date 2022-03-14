@@ -4,7 +4,11 @@ import {
   Ordem,
   Cabecalho,
   ContainerGlobal,
-  Vazio
+  Vazio,
+  ContainerPedido,
+  TituloPedido,
+  DataPedido,
+  TotalPedido
 } from "./styled"
 import axios from 'axios'
 import { BASE_URL } from "../../constants/BASE_URL";
@@ -27,14 +31,14 @@ export default function ActiveOrder() {
 
   console.log(pedidos)
 
-  // const listarPedidos = pedidos.length && pedidos.order.map((item) =>{
-  //   return(
-  //     <Ordem>
-  //       <p><strong>{item.restaurantName}</strong></p>
-  //       <p>R${item.totalPrice}</p>
-  //     </Ordem>
-  //   )
-  // })
+  const converteData = (data) => {
+    const date = new Date(data);
+    const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+    // const meses = ("0" + (date.getMonth() + 1)).slice(-2)
+    const mes = meses[date.getMonth()];
+    const dia = ("0" + date.getDate()).slice(-2);
+    return `${dia} de ${mes} de ${date.getFullYear()}`;
+  };
 
   const pegaPedidos = () => {
     axios
@@ -58,8 +62,11 @@ export default function ActiveOrder() {
 
       {pedidos ? (
         <Ordem>
-          <p><strong>{pedidos.restaurantName}</strong></p>
-          <p>R${pedidos.totalPrice}</p>
+          <ContainerPedido>
+            <TituloPedido>{pedidos.restaurantName}</TituloPedido>
+            <DataPedido>{converteData(pedidos.expiresAt)}</DataPedido>
+            <TotalPedido>{`SUBTOTAL R$ ${pedidos.totalPrice},00`}</TotalPedido>
+          </ContainerPedido>
         </Ordem>
         ):(
           <Vazio>
