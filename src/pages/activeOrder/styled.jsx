@@ -2,18 +2,7 @@ import React from "react";
 import styled from "styled-components"
 
 export const Ordem = styled.div`
-  background: #eeeeee;
-  box-shadow: 0px 0px 0px 1px rgba(50, 50, 50, 0.77);
-  height: 12vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 2vh;
-  margin: 0 2vh;
-
-  p{
-    margin-top: 10px;
-  }
+  padding: 0 1vh;
 `
 
 export const Cabecalho = styled.div`
@@ -44,3 +33,38 @@ export const Vazio = styled.div`
   margin-bottom: 2vh;
 
 `
+
+export const ContainerPedido = styled.div`
+  background-color: #eeeeee;
+  border: 1px solid #d6d6d6;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 10px;
+`
+
+export const TituloPedido = styled.p`
+  height: 1.125rem;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #e8222e;
+  font-weight: bold;
+`;
+
+export const DataPedido = styled.p`
+  height: 1.125rem;
+  font-size: 1rem;
+  letter-spacing: -0.39px;
+  margin-bottom: 5px;
+  `;
+
+export const TotalPedido = styled.p`
+  height: 1.125rem;
+  font-size: 1rem;
+  letter-spacing: -0.39px;
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
