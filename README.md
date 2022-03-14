@@ -7,4 +7,5 @@
 NÃO FUNCIONA:
 *carrinho
 
-SURGE: gleaming-disease.surge.sh
+SURGE: smiling-shake.surge.sh
+
