@@ -7,5 +7,5 @@
 NÃO FUNCIONA:
 *carrinho
 
-SURGE: smiling-shake.surge.sh
+SURGE: https://smiling-shake.surge.sh/
 
