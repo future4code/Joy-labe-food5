@@ -9,3 +9,6 @@ NÃO FUNCIONA:
 
 SURGE: https://smiling-shake.surge.sh/
 
+Nesse link surge o carrinho funciona:
+
+https://permissible-grape.surge.sh/
