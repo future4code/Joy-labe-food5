@@ -6,11 +6,8 @@
 ![Ordens Ativas](https://user-images.githubusercontent.com/88352932/158280896-1935fc93-055a-4ba3-a283-2559bbcc6d3b.PNG)
 
 
-NÃO FUNCIONA:
-*carrinho
+SURGE: https://permissible-grape.surge.sh/
 
-SURGE: https://smiling-shake.surge.sh/
 
-Nesse link surge o carrinho funciona:
 
-https://permissible-grape.surge.sh/
+
